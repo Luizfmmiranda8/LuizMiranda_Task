@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 32235082}
   - component: {fileID: 32235084}
   - component: {fileID: 32235083}
+  - component: {fileID: 32235085}
   m_Layer: 0
   m_Name: Spikehead (1)
   m_TagString: Untagged
@@ -256,6 +257,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &32235085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32235081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52699d6eaa8104f89656ca1682d5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Damage
+  trapDamage: 1
 --- !u!1 &65505541
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +359,7 @@ GameObject:
   - component: {fileID: 87145975}
   - component: {fileID: 87145977}
   - component: {fileID: 87145976}
+  - component: {fileID: 87145978}
   m_Layer: 0
   m_Name: Spikehead
   m_TagString: Untagged
@@ -471,6 +486,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &87145978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87145974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52699d6eaa8104f89656ca1682d5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Damage
+  trapDamage: 1
 --- !u!1 &88149039
 GameObject:
   m_ObjectHideFlags: 0
@@ -13410,6 +13438,7 @@ GameObject:
   - component: {fileID: 443794880}
   - component: {fileID: 443794882}
   - component: {fileID: 443794881}
+  - component: {fileID: 443794883}
   m_Layer: 0
   m_Name: Spikehead (4)
   m_TagString: Untagged
@@ -13536,6 +13565,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &443794883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443794879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52699d6eaa8104f89656ca1682d5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Damage
+  trapDamage: 1
 --- !u!1 &499272602
 GameObject:
   m_ObjectHideFlags: 0
@@ -14032,6 +14074,7 @@ GameObject:
   - component: {fileID: 774316754}
   - component: {fileID: 774316756}
   - component: {fileID: 774316755}
+  - component: {fileID: 774316757}
   m_Layer: 0
   m_Name: Spikehead (6)
   m_TagString: Untagged
@@ -14158,6 +14201,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &774316757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774316753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52699d6eaa8104f89656ca1682d5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Damage
+  trapDamage: 1
 --- !u!1 &810436249
 GameObject:
   m_ObjectHideFlags: 0
@@ -14783,6 +14839,7 @@ GameObject:
   - component: {fileID: 1123465622}
   - component: {fileID: 1123465624}
   - component: {fileID: 1123465623}
+  - component: {fileID: 1123465625}
   m_Layer: 0
   m_Name: Spikehead (2)
   m_TagString: Untagged
@@ -14909,6 +14966,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1123465625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123465621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52699d6eaa8104f89656ca1682d5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Damage
+  trapDamage: 1
 --- !u!1 &1127975385
 GameObject:
   m_ObjectHideFlags: 0
@@ -15926,6 +15996,7 @@ GameObject:
   - component: {fileID: 1439705173}
   - component: {fileID: 1439705175}
   - component: {fileID: 1439705174}
+  - component: {fileID: 1439705176}
   m_Layer: 0
   m_Name: Spikehead (3)
   m_TagString: Untagged
@@ -16052,6 +16123,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1439705176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439705172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52699d6eaa8104f89656ca1682d5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Damage
+  trapDamage: 1
 --- !u!1 &1483775512
 GameObject:
   m_ObjectHideFlags: 0
@@ -16096,6 +16180,7 @@ GameObject:
   - component: {fileID: 1578346932}
   - component: {fileID: 1578346934}
   - component: {fileID: 1578346933}
+  - component: {fileID: 1578346935}
   m_Layer: 0
   m_Name: Spikehead (5)
   m_TagString: Untagged
@@ -16222,6 +16307,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1578346935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578346931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52699d6eaa8104f89656ca1682d5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Damage
+  trapDamage: 1
 --- !u!1 &1592646502
 GameObject:
   m_ObjectHideFlags: 0

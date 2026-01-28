@@ -8,25 +8,40 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 3;
     public int currentHealth {get; private set;}
     public static event Action<int,int> onHealthChanged;
+    bool canTakeDamage = true;
+
+    [Header ("Animations")]
+    Animator playerAnimator;
     #endregion
 
     #region EVENTS
     void Start()
     {
+        playerAnimator = GetComponent<Animator>();
         currentHealth = maxHealth;
         onHealthChanged?.Invoke(currentHealth, maxHealth);
+    }
+
+    public void EndInvulnerability()
+    {
+        canTakeDamage = true;
     }
     #endregion
 
     #region METHODS
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        if(canTakeDamage)
+        {
+            canTakeDamage = false;
+            playerAnimator.SetTrigger("Damage");
+            currentHealth -= amount;
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        onHealthChanged?.Invoke(currentHealth, maxHealth);
+            onHealthChanged?.Invoke(currentHealth, maxHealth);
 
-        if(currentHealth <= 0) Die();
+            if(currentHealth <= 0) Die();
+        }
     }
 
     void Die()
