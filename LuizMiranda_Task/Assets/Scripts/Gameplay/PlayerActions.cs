@@ -12,7 +12,8 @@ public class PlayerActions : MonoBehaviour
     public Rigidbody2D playerRigidbody;
     Vector2 moveInput;
     Vector3 originalScale;
-    BoxCollider2D playerCollider;
+    CapsuleCollider2D playerCollider;
+    BoxCollider2D playerFeetCollider;
     bool jumpInput = false;
 
     [Header ("Animation")]
@@ -24,8 +25,9 @@ public class PlayerActions : MonoBehaviour
     void Start() 
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<BoxCollider2D>();
+        playerCollider = GetComponent<CapsuleCollider2D>();
         playerAnimator = GetComponent<Animator>();
+        playerFeetCollider = GetComponent<BoxCollider2D>();
         originalScale = transform.localScale;
     }
 
@@ -71,7 +73,7 @@ public class PlayerActions : MonoBehaviour
 
     void Jump()
     {
-        if(playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) && jumpInput)
+        if(playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) && jumpInput)
         {
             playerRigidbody.linearVelocity = new Vector2(playerRigidbody.linearVelocity.x, jumpHigh);
             jumpInput = false;
@@ -80,7 +82,7 @@ public class PlayerActions : MonoBehaviour
 
     void UpdateAnimState()
     {
-        if(!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if(!playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             //In the air -> Jumping or falling
             if(playerRigidbody.linearVelocity.y > 0.1f)
