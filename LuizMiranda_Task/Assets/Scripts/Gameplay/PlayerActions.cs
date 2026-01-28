@@ -48,6 +48,19 @@ public class PlayerActions : MonoBehaviour
         jumpInput = value.isPressed;
         Jump();
     }
+
+    void OnNext()
+    {
+        Inventory.Instance.NextItem();
+    }
+
+    void OnInteract(InputValue value)
+    {
+        if(!value.isPressed) return;
+        
+        Debug.Log("Usei o item");
+        Inventory.Instance.UseSelectedItem();
+    }
     #endregion
 
     #region METHODS
