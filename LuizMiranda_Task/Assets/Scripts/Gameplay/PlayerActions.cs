@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements.Experimental;
@@ -13,6 +14,10 @@ public class PlayerActions : MonoBehaviour
     Vector3 originalScale;
     BoxCollider2D playerCollider;
     bool jumpInput = false;
+
+    [Header ("Animation")]
+    Animator playerAnimator;
+    enum PlayerState { Idle = 0, Running = 1, Jumping = 2, Falling = 3};
     #endregion
 
     #region EVENTS
@@ -20,6 +25,7 @@ public class PlayerActions : MonoBehaviour
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<BoxCollider2D>();
+        playerAnimator = GetComponent<Animator>();
         originalScale = transform.localScale;
     }
 
@@ -27,6 +33,7 @@ public class PlayerActions : MonoBehaviour
     {
         MovePlayer(); //Move player around the level
         FlipSprite(); //Flip Sprite to turn the player into the direction that he are moving
+        UpdateAnimState(); //Check which animation should run and trigger it
     }
 
     void OnMove(InputValue value)
@@ -68,6 +75,35 @@ public class PlayerActions : MonoBehaviour
         {
             playerRigidbody.linearVelocity = new Vector2(playerRigidbody.linearVelocity.x, jumpHigh);
             jumpInput = false;
+        }
+    }
+
+    void UpdateAnimState()
+    {
+        if(!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
+            //In the air -> Jumping or falling
+            if(playerRigidbody.linearVelocity.y > 0.1f)
+                SetAnimState(PlayerState.Jumping);
+            else
+                SetAnimState(PlayerState.Falling);
+        }
+        else
+        {
+            //On ground -> Idle or running
+            bool isPlayerMoving = Mathf.Abs(playerRigidbody.linearVelocity.x) > Mathf.Epsilon;
+            if(isPlayerMoving)
+                SetAnimState(PlayerState.Running);
+            else
+                SetAnimState(PlayerState.Idle);
+        }
+    }
+
+    void SetAnimState(PlayerState newState)
+    {
+        if(playerAnimator.GetInteger("State") != (int)newState)
+        {
+            playerAnimator.SetInteger("State", (int)newState);
         }
     }
     #endregion
