@@ -7,11 +7,13 @@ public class GameManager : MonoBehaviour
     void OnEnable()
     {
         PlayerHealth.OnPlayerDied += HandlePlayerDeath;
+        FinishGame.OnFinishGameRequest += HandleFinishGame;
     }
 
     void OnDisable()
     {
         PlayerHealth.OnPlayerDied -= HandlePlayerDeath;
+        FinishGame.OnFinishGameRequest -= HandleFinishGame;
     }
     #endregion
 
@@ -19,6 +21,16 @@ public class GameManager : MonoBehaviour
     void HandlePlayerDeath()
     {
         StartCoroutine(ReloadFromCheckpoint());
+    }
+
+    void HandleFinishGame()
+    {
+        if(SaveSystem.HasSave())
+        {
+            SaveSystem.DeleteSave();
+        }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     System.Collections.IEnumerator ReloadFromCheckpoint()

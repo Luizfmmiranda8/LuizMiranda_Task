@@ -57,5 +57,13 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/save.json";
         return System.IO.File.Exists(path);
     }
+
+    public static void DeleteSave()
+    {
+        if(File.Exists(savePath))
+        {
+            File.Delete(savePath);
+        }
+    }
     #endregion
 }
