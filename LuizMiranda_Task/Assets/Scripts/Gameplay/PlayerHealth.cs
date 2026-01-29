@@ -12,13 +12,18 @@ public class PlayerHealth : MonoBehaviour
 
     [Header ("Animations")]
     Animator playerAnimator;
+
+    public static event Action OnPlayerDied;
     #endregion
 
     #region EVENTS
+    void Awake()
+    {
+        currentHealth = maxHealth;
+    }
     void Start()
     {
         playerAnimator = GetComponent<Animator>();
-        currentHealth = maxHealth;
         onHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
@@ -56,10 +61,20 @@ public class PlayerHealth : MonoBehaviour
         onHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public void SetHealth(int value)
+    {
+        currentHealth = value;
+        onHealthChanged?.Invoke(currentHealth, maxHealth);
+    }
+
     void Die()
     {
-        //TODO: Game over
-        Debug.Log("Morreu");
+        OnPlayerDied?.Invoke();
     }
     #endregion
 }

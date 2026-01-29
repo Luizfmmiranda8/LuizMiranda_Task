@@ -87,6 +87,31 @@ public class Inventory : MonoBehaviour
         return selectedIndex;
     }
 
+    public void ClearInventory()
+    {
+        items.Clear();
+        OnInventoryChanged?.Invoke();
+    }
+
+    public void LoadInventory(List<InventorySaveData> savedItems, ItemData[] allItems)
+    {
+        items.Clear();
+
+        foreach(var saved in savedItems)
+        {
+            ItemData item = System.Array.Find(allItems, i => i.itemID == saved.itemID);
+
+            if(item != null)
+            {
+                InventorySlot slot = new InventorySlot(item);
+                slot.quantity = saved.quantity;
+                items.Add(slot);
+            }
+        }
+
+        OnInventoryChanged?.Invoke();
+    }
+
     #endregion
 }
 

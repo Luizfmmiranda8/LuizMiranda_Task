@@ -57,8 +57,7 @@ public class PlayerActions : MonoBehaviour
     void OnInteract(InputValue value)
     {
         if(!value.isPressed) return;
-        
-        Debug.Log("Usei o item");
+
         Inventory.Instance.UseSelectedItem();
     }
     #endregion

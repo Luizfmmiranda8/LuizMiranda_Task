@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: 
   icon: {fileID: 7293598183456022363, guid: 1ddc9afd21fec77489b1248d18f31b68, type: 3}
   healAmount: 1
+  itemID: apple
