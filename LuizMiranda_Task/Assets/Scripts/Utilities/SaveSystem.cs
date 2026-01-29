@@ -51,5 +51,11 @@ public static class SaveSystem
 
         return data;
     }
+
+    public static bool HasSave()
+    {
+        string path = Application.persistentDataPath + "/save.json";
+        return System.IO.File.Exists(path);
+    }
     #endregion
 }
