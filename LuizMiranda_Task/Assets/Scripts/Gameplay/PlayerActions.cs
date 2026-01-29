@@ -23,6 +23,9 @@ public class PlayerActions : MonoBehaviour
     [Header ("SFX")]
     [SerializeField] AudioClip jumpSFX;
     [SerializeField] AudioClip eatFruitSFX;
+
+    [Header ("Instructions")]
+    [SerializeField] GameObject instructions;
     #endregion
 
     #region EVENTS
@@ -53,8 +56,9 @@ public class PlayerActions : MonoBehaviour
         Jump();
     }
 
-    void OnNext()
+    void OnNext(InputValue value)
     {
+        if(!value.isPressed) return;
         Inventory.Instance.NextItem();
     }
 
@@ -64,6 +68,13 @@ public class PlayerActions : MonoBehaviour
 
         AudioSource.PlayClipAtPoint(eatFruitSFX, transform.position);
         Inventory.Instance.UseSelectedItem();
+    }
+
+    void OnCloseInstructions(InputValue value)
+    {
+        if(!value.isPressed) return;
+
+        instructions.gameObject.SetActive(false);
     }
     #endregion
 

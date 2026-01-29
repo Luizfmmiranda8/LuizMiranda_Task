@@ -17,24 +17,9 @@ public class GameLoader : MonoBehaviour
         if(Instance == null)
             Instance = this;
     }
-    IEnumerator Start()
+    void Start()
     {
-        yield return null;
-
-        SaveData data = SaveSystem.LoadGame();
-
-        if (data == null) yield break;
-
-        // Player position
-        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-        player.position = new Vector2(data.playerPosX, data.playerPosY);
-
-        // Health
-        PlayerHealth health = FindFirstObjectByType<PlayerHealth>();
-        health.SetHealth(data.currentHealth);
-
-        // Inventory
-        Inventory.Instance.LoadInventory(data.inventoryItems, allItems);
+        LoadGame();
     }
 
     public void LoadGame()

@@ -14,7 +14,7 @@ public class HealthUI : MonoBehaviour
         PlayerHealth.onHealthChanged += UpdateHearts;
     }
 
-    void Osable()
+    void OnDisable()
     {
         PlayerHealth.onHealthChanged -= UpdateHearts;
     }
