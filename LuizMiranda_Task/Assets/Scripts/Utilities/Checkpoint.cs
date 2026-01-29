@@ -8,6 +8,9 @@ public class Checkpoint : MonoBehaviour
 
     [Header ("Animations")]
     Animator checkpointAnimator;
+
+    [Header ("SFX")]
+    [SerializeField] AudioClip checkpointSFX;
     #endregion
 
     #region EVENTS
@@ -21,6 +24,7 @@ public class Checkpoint : MonoBehaviour
 
         if (hasSaved) return;
 
+        AudioSource.PlayClipAtPoint(checkpointSFX, transform.position);
         SaveSystem.SaveGame();
         hasSaved = true;
 

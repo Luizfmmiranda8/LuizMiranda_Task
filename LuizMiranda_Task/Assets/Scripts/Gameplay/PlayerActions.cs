@@ -19,6 +19,10 @@ public class PlayerActions : MonoBehaviour
     [Header ("Animation")]
     Animator playerAnimator;
     enum PlayerState { Idle = 0, Running = 1, Jumping = 2, Falling = 3};
+
+    [Header ("SFX")]
+    [SerializeField] AudioClip jumpSFX;
+    [SerializeField] AudioClip eatFruitSFX;
     #endregion
 
     #region EVENTS
@@ -58,6 +62,7 @@ public class PlayerActions : MonoBehaviour
     {
         if(!value.isPressed) return;
 
+        AudioSource.PlayClipAtPoint(eatFruitSFX, transform.position);
         Inventory.Instance.UseSelectedItem();
     }
     #endregion
@@ -87,6 +92,7 @@ public class PlayerActions : MonoBehaviour
     {
         if(playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) && jumpInput)
         {
+            AudioSource.PlayClipAtPoint(jumpSFX, transform.position);
             playerRigidbody.linearVelocity = new Vector2(playerRigidbody.linearVelocity.x, jumpHigh);
             jumpInput = false;
         }

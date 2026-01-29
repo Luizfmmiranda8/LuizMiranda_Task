@@ -13,6 +13,10 @@ public class PlayerHealth : MonoBehaviour
     [Header ("Animations")]
     Animator playerAnimator;
 
+    [Header ("SFX")]
+    [SerializeField] AudioClip damageSFX;
+    [SerializeField] AudioClip dieSFX;
+
     public static event Action OnPlayerDied;
     #endregion
 
@@ -38,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(canTakeDamage)
         {
+            AudioSource.PlayClipAtPoint(damageSFX, transform.position);
             canTakeDamage = false;
             playerAnimator.SetTrigger("Damage");
             currentHealth -= amount;
@@ -74,6 +79,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
+        AudioSource.PlayClipAtPoint(dieSFX, transform.position);
         OnPlayerDied?.Invoke();
     }
     #endregion
